@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Оформлення замовлення</h2>
+
+<form action="{{ url_for('checkout') }}" method="post">
+  <label>Ім’я:</label><br>
+  <input type="text" name="name" required><br><br>
+
+  <label>Прізвище:</label><br>
+  <input type="text" name="surname" required><br><br>
+
+  <label>Телефон:</label><br>
+  <input type="text" name="phone" required><br><br>
+
+  <label>Спосіб доставки:</label><br>
+  <select name="delivery" id="delivery" required onchange="toggleAddress()">
+    <option value="nova_poshta">Нова Пошта</option>
+    <option value="ukr_poshta">Укрпошта</option>
+    <option value="courier">Кур’єр</option>
+  </select><br><br>
+
+  <div id="address-block">
+    <label>Адреса доставки:</label><br>
+    <input type="text" name="address" required><br><br>
+  </div>
+
+  <label>Спосіб оплати:</label><br>
+  <select name="payment" id="payment" required onchange="togglePaymentFields()">
+    <option value="cod">Накладений платіж</option>
+    <option value="online">Онлайн платіж</option>
+  </select><br><br>
+
+  <div id="card-fields" style="display:none;">
+    <label>Номер картки:</label><br>
+    <input type="text" name="card_number"><br><br>
+
+    <label>Термін дії (мм/гг):</label><br>
+    <input type="text" name="card_expiry"><br><br>
+
+    <label>CVV/Пароль:</label><br>
+    <input type="password" name="card_cvv"><br><br>
+  </div>
+
+  <p><strong>Всього до сплати:</strong> {{ total }} грн</p>
+  <button type="submit">Підтвердити</button>
+</form>
+
+<script>
+function togglePaymentFields() {
+  const payment = document.getElementById('payment').value;
+  document.getElementById('card-fields').style.display = payment === 'online' ? 'block' : 'none';
+}
+
+function toggleAddress() {
+  const delivery = document.getElementById('delivery').value;
+  const label = document.querySelector('#address-block label');
+  if (delivery === 'courier') {
+    label.textContent = 'Адреса вашого дому або квартири:';
+  } else {
+    label.textContent = 'Адреса відділення пошти:';
+  }
+}
+</script>
+{% endblock %}

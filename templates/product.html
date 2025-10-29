@@ -1,0 +1,19 @@
+# templates/product.html
+{% extends 'base.html' %}
+{% block content %}
+<section class="product-detail">
+    <div class="container">
+        <div class="product-info">
+            <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.name }}">
+            <div>
+                <h2>{{ product.name }}</h2>
+                <p>{{ product.description }}</p>
+                <p class="price">{{ product.price }} грн</p>
+<button class="btn" onclick="location.href='{{ url_for('add_to_cart', product_id=product.id) }}'">Купити</button>
+<button class="btn" onclick="location.href='{{ url_for('cart') }}'">Кошик</button>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,35 @@
+<!-- templates/index.html -->
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <h2>Ласкаво просимо до Nude Glow</h2>
+        <p>Твоя ніжна краса починається тут — з якісною декоративною та доглядовою косметикою</p>
+        <a href="/catalog" class="btn">Перейти в каталог</a>
+    </div>
+</section>
+
+<section class="intro">
+    <div class="container">
+        <h3>Про наш бренд</h3>
+        <p>Ми створюємо косметику, яка підкреслює твою природну красу. Ніжні відтінки, м’які текстури та формули з турботою про шкіру — все це Nude Glow.</p>
+    </div>
+</section>
+
+<section class="highlight">
+    <div class="container">
+        <h3>Популярні товари</h3>
+        <div class="products">
+            {% for product in products[:3] %}
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.name }}">
+                <h4>{{ product.name }}</h4>
+                <p class="price">{{ product.price }} грн</p>
+                <a href="/product/{{ product.id }}" class="btn">Детальніше</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Дякуємо за замовлення!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Дякуємо за замовлення!</h1>
+        <p>Ваше замовлення успішно оформлено.</p>
+        <p><strong>Сума до сплати:</strong> {{ total }} грн</p>
+        <a href="{{ url_for('catalog') }}" class="btn">⬅ Повернутись до каталогу</a>
+    </div>
+</body>
+</html>

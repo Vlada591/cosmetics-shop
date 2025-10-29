@@ -1,0 +1,24 @@
+<!-- templates/catalog.html -->
+{% extends 'base.html' %}
+{% block content %}
+<section class="catalog">
+    <div class="container">
+        <h2 class="section-title">Каталог товарів</h2>
+        <div class="products">
+            {% for product in products %}
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.name }}">
+                <h3>{{ product.name }}</h3>
+                <p class="description">{{ product.description }}</p>
+                <p class="price">{{ product.price }} грн</p>
+                <div class="card-buttons">
+                    <a href="{{ url_for('product', product_id=product.id) }}" class="btn btn-details">Детальніше</a>
+                    <a href="{{ url_for('add_to_cart', product_id=product.id) }}" class="btn btn-cart">🛒</a>
+                    <a href="{{ url_for('buy_now', product_id=product.id) }}" class="btn btn-buy">💳</a>
+               </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

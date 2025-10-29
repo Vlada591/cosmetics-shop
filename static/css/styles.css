@@ -1,0 +1,164 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fceff4;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+header {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    color: #d47f9e;
+    font-weight: bold;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #d47f9e;
+}
+
+.hero {
+    background: linear-gradient(to right, #fcdde5, #fbe6f1);
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 40px;
+    color: #d47f9e;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #d47f9e;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #b46a88;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card h4 {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #d47f9e;
+}
+
+.price {
+    font-weight: bold;
+    color: #444;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.product-info {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.product-info img {
+    width: 400px;
+    border-radius: 10px;
+}
+.card-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-details {
+  background-color: #6c63ff;
+}
+
+.btn-cart {
+  background-color: #ff9800;
+  font-size: 18px;
+  padding: 8px 10px;
+}
+
+.btn-buy {
+  background-color: #4caf50;
+  font-size: 18px;
+  padding: 8px 10px;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}

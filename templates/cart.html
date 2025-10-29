@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>🛒 Ваш кошик</h2>
+
+{% if cart_items %}
+<table style="width:100%; border-collapse: collapse;">
+  <tr style="background-color:#f2f2f2;">
+    <th>Фото</th>
+    <th>Назва</th>
+    <th>Опис</th>
+    <th>Ціна</th>
+  </tr>
+  {% for item in cart_items %}
+  <tr>
+    <td><img src="{{ url_for('static', filename='images/' + item.image) }}" width="100"></td>
+    <td>{{ item.name }}</td>
+    <td>{{ item.description }}</td>
+    <td>{{ item.price }} грн</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<p style="margin-top:20px;"><strong>Загальна сума:</strong> {{ cart_items | sum(attribute='price') }} грн</p>
+
+<div style="margin-top:30px;">
+  <a href="{{ url_for('checkout') }}" class="btn" style="padding:10px 20px; background-color:#ff69b4; color:white; text-decoration:none; border-radius:5px;">Оформити замовлення</a>
+</div>
+
+{% else %}
+<p>Кошик порожній.</p>
+{% endif %}
+{% endblock %}
